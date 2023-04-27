@@ -73,6 +73,7 @@
   - [x] str 转int Float
   - [x] base64，url，raw，md5，sha1，sha256。sha512编码解码
   - [x] time跟str互转
+  - [x] byte跟str互转
 - ##### 使用方法
   -  #### int float转string
   ```go
@@ -102,6 +103,11 @@
    Gconvert.Time2Str(time.Now())
    Gconvert.Unix2Time(1614168000)
    Gconvert.Str2Time("2020-112-11 22:33:11")
+  ```
+  -  #### byte互转str 
+  ```go
+  Gconvert.Bytes2String("xxxx")
+  Gconvert.String2Bytes("12345")
   ```
 ---
 - ####  文件操作
@@ -165,5 +171,53 @@
   ```go
      Glogin.RedisLogin("IP","6379","xxxxxx")
   ```
-
+---
+- ####  各种网络api调用
+- [x] Fofa
+- [x] Hunter
+-  [x] Quake(待测试)
+- [x] ZoomEye(待测试)
+- [x] Shodan
+- [x] Censys
+- ##### 使用方法
+  -  ####  Fofa
+  ```go
+    ff := Gapi.Fofa{}
+    ff.SetAccount("XXXX@qq.com")
+    ff.SetPassword("XXXXXXX")
+    r := ff.GetResult("domain=\"baidu.com\"")
+    for k, v := range r {
+		     fmt.Println(k, v)
+	   }
+  ```
+  -  ####  hunter
+  ```go
+    hh := Gapi.Hunter{}
+	   hh.SetPassword("xxxxx")
+	   hh.SetPage("1")
+	   hh.SetNubmer("100")
+	   r := hh.GetResult("ip=\"xx4.1x3.xx0.xx3\"")
+	   for k, v := range r {
+		    fmt.Println(k, v)
+	    }
+  ```
+  -  ####  Shodan
+  ```go
+    sd := Gapi.Shodan{}
+	 // shodan用的chrome插件的api，只能用来获取端口
+	   sd.SetDomain("1xx.168.72.89")
+	   sd.SetPassword("EAPkjRn3SB4ishKUUSi4R0grSSI1GXbB")
+	   sd.SetType("ports")
+	   rr := sd.GetResult()
+  ```
+  -  ####  Censys
+  ```go
+   ce := Gapi.Censys{}
+	  ce.SetUsername("153bddb7-8fe6-4388-9191-18b4cea4b9f9")
+	  ce.SetPassword("HnUWQqCVydbWvelAhtnHPoR3qSolkRgv")
+	  cresult := ce.GetResult("xiaomi.com")
+	  for k, v := range cresult {
+		    fmt.Println(k, v)
+	  }
+  ```
   

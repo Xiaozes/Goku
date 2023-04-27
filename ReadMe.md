@@ -206,15 +206,15 @@
     sd := Gapi.Shodan{}
 	 // shodan用的chrome插件的api，只能用来获取端口
 	   sd.SetDomain("1xx.168.72.89")
-	   sd.SetPassword("EAPkjRn3SB4ishKUUSi4R0grSSI1GXbB")
+	   sd.SetPassword("xxxxxxxx")
 	   sd.SetType("ports")
 	   rr := sd.GetResult()
   ```
   -  ####  Censys
   ```go
    ce := Gapi.Censys{}
-	  ce.SetUsername("153bddb7-8fe6-4388-9191-18b4cea4b9f9")
-	  ce.SetPassword("HnUWQqCVydbWvelAhtnHPoR3qSolkRgv")
+	  ce.SetUsername("xxxxxxx")
+	  ce.SetPassword("xxxxxxxxxxxxxxxxxx")
 	  cresult := ce.GetResult("xiaomi.com")
 	  for k, v := range cresult {
 		    fmt.Println(k, v)
